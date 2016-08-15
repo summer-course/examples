@@ -1,20 +1,20 @@
-"""Simple regression code example"""
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This temporary script file is located here:
+/home/test/.spyder2/.temp.py
+"""
 
 import numpy as np
 import pandas as pd
 import statsmodels.formula.api as sm
 
 
-
 def load_data(fname):
     df = pd.DataFrame.from_csv(fname,sep='\t')    
     
     return df
-    
-def summary(r):
-     print "Min, Mean, Max" , np.min(r), np.mean(r), np.max(r)
-    
-     print "1stQu, 3stQu, Median", np.percentile(r, [25, 75]), np.median(r)
     
     
 def make_regression(fname="./data/prostate.data.txt"):
@@ -45,7 +45,7 @@ def make_regression(fname="./data/prostate.data.txt"):
     
     res = sm.OLS(y_train, x_train).fit()
 
-    print res.summary()
+    print res.summary()    
     
     print "\n\n\n******************* Prediction Error Stat ******************************"
     
@@ -53,6 +53,21 @@ def make_regression(fname="./data/prostate.data.txt"):
 
     mse = (y_test - predict)**2
     
-    summary(mse)  
+    print "Min, Mean, Max" , np.min(mse), np.mean(mse), np.max(mse)
+    
+    print "1stQu, 3stQu, Median", np.percentile(mse, [25, 75]), np.median(mse)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
